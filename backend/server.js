@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -104,7 +105,7 @@ console.log("Google final response:", JSON.stringify(operation, null, 2));
       downloadPath,
     });
 
-    const videoUrl = `http://192.168.0.104:${PORT}/videos/${fileName}`;
+    const videoUrl = `${req.protocol}://${req.get('host')}/videos/${fileName}`;
 
     console.log("Video tayyor:", videoUrl);
 
